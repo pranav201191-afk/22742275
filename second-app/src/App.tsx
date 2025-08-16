@@ -1,4 +1,4 @@
-// FluxPay — Futuristic Micropayments Platform (Full Workflow Demo)
+// Blitz CoinPay — Futuristic Micropayments Platform (Full Workflow Demo)
 // One app to showcase micropayments across domains + an end-to-end workflow run.
 // Premium blurred animation background included. Everything runs in demo/sandbox mode.
 
@@ -357,7 +357,7 @@ if (s.length > 0) {
       <BackgroundFX />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2">FluxPay</motion.h1>
+        <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2">Blitz CoinPay</motion.h1>
         <p className="text-lg text-white/70 mb-8">Next-gen micropayments. Real-time, borderless, programmable — spanning content, gaming, gig work, IoT, loyalty, payroll, and streaming.</p>
 
         <Tabs value={tab} onValueChange={setTab} className="w-full">
@@ -564,7 +564,7 @@ if (s.length > 0) {
             <TabsContent value="workflow">
               <Card className="bg-white/5 border-none rounded-2xl backdrop-blur-md">
                 <CardContent className="p-6 space-y-4">
-                  <h2 className="text-2xl font-semibold">How FluxPay Works</h2>
+                  <h2 className="text-2xl font-semibold">How Blitz CoinPay Works</h2>
                   <ol className="list-decimal pl-5 space-y-2 text-white/80">
                     {STAGES.map((s, i) => (<li key={i}><strong>Step {i+1}.</strong> {s}</li>))}
                   </ol>
