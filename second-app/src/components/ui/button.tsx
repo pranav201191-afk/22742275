@@ -14,22 +14,29 @@ const SIZE: Record<Size, string> = {
   md: "px-4 py-2.5 text-sm rounded-2xl",
 };
 
+export interface ButtonProps
+  extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
+  variant?: Variant;
+  size?: Size;
+}
+
 export function Button({
   className = "",
   children,
+  variant = "ghost",
+  size = "md",
   ...props
-}: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & { variant?: Variant; size?: Size }) {
-  const variant = (props as any).variant ?? "ghost";
-  const size = (props as any).size ?? "md";
-  // @ts-ignore - we consume these so they don't land on the DOM element
-  delete (props as any).variant;
-  delete (props as any).size;
+}: ButtonProps) {
+  const variantClass = VARIANT[variant];
+  const sizeClass = SIZE[size];
 
   return (
     <button
       className={[
         "inline-flex items-center gap-2 font-medium transition-colors",
-        VARIANT[variant], SIZE[size], className,
+        variantClass,
+        sizeClass,
+        className,
       ].join(" ")}
       {...props}
     >
