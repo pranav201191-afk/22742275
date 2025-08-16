@@ -9,7 +9,7 @@ permissions:
   pages: write
   id-token: write
 
-# All "run" steps below will execute inside ./second-app
+# Run all shell steps from the second-app directory
 defaults:
   run:
     working-directory: second-app
