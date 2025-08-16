@@ -9,23 +9,30 @@ permissions:
   pages: write
   id-token: write
 
+# All "run" steps below will execute inside ./second-app
+defaults:
+  run:
+    working-directory: second-app
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      # Use npm ci if package-lock.json exists; otherwise npm install
+          cache-dependency-path: second-app/package-lock.json
+
       - run: npm ci || npm install
       - run: npm run build
-      # SPA fallback so refresh/deep links work on Pages
       - run: cp dist/index.html dist/404.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: second-app/dist
 
   deploy:
     needs: build
